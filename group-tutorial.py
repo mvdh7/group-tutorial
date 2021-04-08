@@ -18,6 +18,13 @@ def get_linear_regression(data, x_var="temperature", y_var="MgCa"):
             data[l][x_var].values,
             data[l][y_var].values
         )
+        
+        # data.temperature  # yes
+        # data["temperature"]  # yes
+        # data[x_var]  # yes
+        # data.x_var  # no
+        # data["x_var"]  # no
+        
     else:
         slope = np.nan
         intercept = np.nan
@@ -29,8 +36,7 @@ def get_linear_regression(data, x_var="temperature", y_var="MgCa"):
     # Make a plot
     fig, ax = plt.subplots(dpi=300)
     ax.scatter(x_var, y_var, data=data)
-    
-    
+
     return pd.Series({
         "slope": slope,
         "intercept": intercept,
